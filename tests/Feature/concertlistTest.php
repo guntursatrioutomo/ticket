@@ -8,21 +8,18 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class ViewConcertListing extends TestCase
+class concertlistTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function a_user_can_view_published_concert_listing()
+   
+    /** @test */
+    public function tets_a_user_can_view_published_concert_listing()
     {
         $this->withoutExceptionHandling();
         // Arrange
         // Membuat field database concert
-        $concert = Concert::factory()->states('published')->create([
+        $concert = Concert::factory()->published()->create([
             'title' => 'The Red Chord',
             'subtitle' => 'With Animosity and Lethargy',
             'date'  => Carbon::parse('August 13th, 2019, 8:00pm'),

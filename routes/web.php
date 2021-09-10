@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/concerts/{concert}', [ConcertsController::class, 'show']);
+Route::get('/concerts/{id}', [ConcertsController::class, 'show']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
