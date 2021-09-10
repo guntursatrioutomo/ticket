@@ -16,6 +16,7 @@ class CreateConcertsTable extends Migration
         Schema::create('concerts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->dateTime('published_at')->nullable();
             $table->string('subtitle');
             $table->dateTime('date');
             $table->integer('ticket_price');

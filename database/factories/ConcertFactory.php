@@ -32,4 +32,35 @@ class ConcertFactory extends Factory
             'additional_information' => 'Some sample additinal information',
         ];
     }
+
+
+    public function published ()
+    {
+        return $this-> state (function (array $attributes) 
+        {
+            return [
+                'published_at' => Carbon::now()
+            ];
+        });
+
+    }
+
+    public function unpublished ()
+    {
+        return $this-> state (function (array $attributes) 
+        {
+            return [
+                'published_at' => null
+            ];
+        });
+
+    }
+
+ 
+
 }
+
+
+  
+    
+
