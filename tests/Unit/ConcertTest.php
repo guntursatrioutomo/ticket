@@ -20,6 +20,7 @@ class ConcertTest extends TestCase
             'date'  => Carbon::parse('2019-12-01, 8:00pm'),
         ]);
 
+        //mengecek kesesuaian data dengan conserts.show formatted_date
         $this->assertEquals('December 1, 2019', $concert->formatted_date);
     }
 

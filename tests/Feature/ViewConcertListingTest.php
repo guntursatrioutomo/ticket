@@ -21,7 +21,7 @@ class ViewConcertListing extends TestCase
     {
         $this->withoutExceptionHandling();
         // Arrange
-        // Create a concert
+        // Membuat field database concert
         $concert = Concert::factory()->states('published')->create([
             'title' => 'The Red Chord',
             'subtitle' => 'With Animosity and Lethargy',
@@ -36,13 +36,13 @@ class ViewConcertListing extends TestCase
         ]);
 
         // Act
-        // View the concert listings 
+        // Menampilakan Concert pada web routing
         $response = $this->get('/concerts/'. $concert->id);
 
 
 
         // Assert
-        // See the concert details
+        // Melihat pengetesan sesuai dengan isi field yang ditentukan
         $response->assertSee('The Red Chord');
         $response->assertSee('With Animosity and Lethargy');
         $response->assertSee('August 13, 2019');
@@ -60,6 +60,7 @@ class ViewConcertListing extends TestCase
    
 
       /** @test */
+      //mengatur user tidak dapat melihat list konser yang belum di publis
 
       public function a_user_cannot_view_unpublished_concert_listing()
       {
